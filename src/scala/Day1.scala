@@ -11,7 +11,7 @@ object Day1A {
 object Day1B {
   def main(args: Array[String]): Unit = {
     var tot = 0
-    var set = scala.collection.mutable.Set[Int]()
+    var set = Set[Int]()
     set += 0
 
     while (true) {
