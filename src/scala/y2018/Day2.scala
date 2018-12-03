@@ -1,3 +1,5 @@
+package y2018
+
 import scala.collection.mutable.ListBuffer
 import scala.io.Source
 
@@ -6,7 +8,7 @@ object Day2A {
     var twoLettersCount = 0
     var threeLettersCount = 0
 
-    Source.fromFile("input/day2").getLines.foreach(line => {
+    Source.fromFile("input/2018/day2").getLines.foreach(line => {
       val map = line.groupBy(identity).mapValues(_.length)
       if (map.values.exists(_ == 2)) twoLettersCount += 1
       if (map.values.exists(_ == 3)) threeLettersCount += 1
@@ -18,7 +20,7 @@ object Day2A {
 object Day2B {
   def main(args: Array[String]): Unit = {
     val list = ListBuffer.empty[String]
-    Source.fromFile("input/day2").getLines.foreach(line => {
+    Source.fromFile("input/2018/day2").getLines.foreach(line => {
       list.foreach(item => {
         if (distance(item, line) == 1) {
           print(s"Found: ")
