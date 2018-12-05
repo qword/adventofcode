@@ -23,12 +23,12 @@ object Day5 {
   def main(args: Array[String]): Unit = {
 
     var minPolymerLength = Int.MaxValue
-    val input = Source.fromFile("input/2018/day5").getLines.next
+    val input = Source.fromFile("input/2018/day5").getLines next
 
     // Find all symbols
     var set = Set[String]()
     input.foreach(char => {
-      set += char.toString.toLowerCase()
+      set += char.toString.toLowerCase
     })
 
     // find collapsed lengths when removing a symbol
@@ -41,10 +41,10 @@ object Day5 {
       })
 
       val collapsed = collapse(iteration)
-      if (collapsed.length < minPolymerLength) minPolymerLength = collapsed.length
+      if (collapsed.length < minPolymerLength) minPolymerLength = collapsed length
     }
 
-    println(s"Result part A: ${collapse(input).length}")
+    println(s"Result part A: ${collapse(input) length}")
     println(s"Result part B: $minPolymerLength")
   }
 }
