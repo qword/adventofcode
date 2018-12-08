@@ -9,7 +9,7 @@ case class Node(
   metadata: ListBuffer[Int] = ListBuffer.empty
 )
 
-object Day8A {
+object Day8 {
   def main(args: Array[String]): Unit = {
 
     val input = Source.fromFile("input/2018/day8").getLines.next.split(" ").map(_.toInt)
