@@ -63,9 +63,10 @@ object Day9A {
   }
 }
 
-case class Node(value: Int, var prev: Node = null, var next: Node = null)
 
 object Day9B {
+  case class Node(value: Int, var prev: Node = null, var next: Node = null)
+
   def main(args: Array[String]): Unit = {
 
     val tokens = Source.fromFile("input/2018/day9").getLines.next.split(" ")
