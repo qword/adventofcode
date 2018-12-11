@@ -25,7 +25,7 @@ object Day10 {
     }
 
     Source.fromFile("input/2017/day10").getLines.next().split(",").foreach(value => {
-      reverse(value toInt)
+      reverse(value.toInt)
     })
 
     println(s"Result: ${list(0) * list(1)}")
@@ -35,6 +35,14 @@ object Day10 {
 
 object Day10B {
   def main(args: Array[String]): Unit = {
+    val input = Source.fromFile("input/2017/day10").getLines.next()
+    println(s"Result: ${KnotHash.hash(input)}")
+  }
+}
+
+
+object KnotHash {
+  def hash(inputStr: String): String = {
     val list = ListBuffer.empty[Int]
     for (x <- 0 to 255) list += x
 
@@ -55,7 +63,6 @@ object Day10B {
     }
 
     val input = ListBuffer.empty[Int]
-    val inputStr = Source.fromFile("input/2017/day10").getLines.next()
     inputStr.foreach(c => input += c)
     input += (17, 31, 73, 47, 23)
 
@@ -71,11 +78,12 @@ object Day10B {
       for (b <- 0 until 16) {
         nextChar = nextChar ^ list(b + (a * 16))
       }
-      var nextHex = "%02X".format(nextChar.toHexString)
+      var nextHex = nextChar.toHexString.reverse.padTo(2, '0').reverse
       denseHash += nextHex
     }
 
-    println(s"Result: $denseHash")
+    denseHash
   }
 }
+
 
