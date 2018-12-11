@@ -50,7 +50,6 @@ object Day9A {
         }
       }
 
-
       currentMarble += 1
       currentPlayer = (currentPlayer + 1) % maxPlayers
 
@@ -81,7 +80,6 @@ object Day9B {
     var currentPlayer = 0
     val players = mutable.HashMap[Int, Long]()
 
-
     while (currentMarble < lastMarble) {
       if (currentMarble == 1) {
         val nextNode = Node(1)
@@ -106,7 +104,6 @@ object Day9B {
         }
 
         players += (currentPlayer -> (players(currentPlayer) + currentNode.value))
-
 
         // remove current node
         currentNode.next.prev = currentNode.prev
