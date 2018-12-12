@@ -2,8 +2,6 @@ package y2018
 
 import scala.io.Source
 
-case class Point(var x:Int, var y:Int, vx: Int, vy: Int)
-
 object Day11 {
   def main(args: Array[String]): Unit = {
     val input = Source.fromFile("input/2018/day11").getLines.next.toInt
