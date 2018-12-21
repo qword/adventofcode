@@ -61,19 +61,17 @@ object Day19 {
       }
     })
 
+    /* Part B,
+      1. found target: 10551376
+      2. found divisors: 1 2 4 8 11 16 22 44 88 176 59951 119902 239804 479608 659461 959216 1318922 2637844 5275688 10551376
+      3. found sum: 22302144
+     */
     println(s"Solution to part 2: 22302144")
 
     // Part A:
     while(true) {
       cycle()
     }
-
-    /* Part B,
-      1. found target: 10551376
-      2. found divisors: 1 2 4 8 11 16 22 44 88 176 59951 119902 239804 479608 659461 959216 1318922 2637844 5275688 10551376
-      3. found sum: 22302144
-     */
-
   }
 
   def cycle(): Unit = {

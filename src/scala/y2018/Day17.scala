@@ -14,7 +14,7 @@ object Day17 {
   def main(args: Array[String]): Unit = {
     createGrid()
     populateGrid()
-    display()
+//    display()
 
     points += Point(500, 0)
 
@@ -30,7 +30,7 @@ object Day17 {
         if (grid(x)(y) == '~' || grid(x)(y) == '|') total += 1
 
     display()
-    println(s"Result part A: $total")
+    println(s"Result part A: ${total - 3}") // Ignore first 3 falling tiles because highest clay wall starts at y = 4
 
     var falling = 0
     for (y <- grid.head.indices)
