@@ -3,9 +3,10 @@ package y2018
 import scala.collection.mutable.ListBuffer
 import scala.io.Source
 
-object Day19 {
+object Day21 {
   val reg = Array.ofDim[Int](6)
   val instructions = ListBuffer.empty[Instr]
+  val resultsB = ListBuffer.empty[Int]
   var pointer = -1
 
   case class Instr(op: String, a: Int, b: Int, c: Int)
@@ -50,7 +51,7 @@ object Day19 {
   }
 
   def main(args: Array[String]): Unit = {
-    Source.fromFile("input/2018/day19").getLines.foreach(l => {
+    Source.fromFile("input/2018/day21").getLines.foreach(l => {
       if (!l.isEmpty) {
         if (l.startsWith("#")) {
           pointer = l.substring(4).toInt
@@ -61,34 +62,44 @@ object Day19 {
       }
     })
 
-    /* Part B,
-      1. found target: 10551376
-      2. found divisors: 1 2 4 8 11 16 22 44 88 176 59951 119902 239804 479608 659461 959216 1318922 2637844 5275688 10551376
-      3. found sum: 22302144
-     */
-    println(s"Solution to part 2: 22302144")
-
     // Part A:
-    while(true) {
-      cycle()
-    }
+    while(cycleUntilTerminationA()) {}
+
+    // Part B:
+    while(cycleUntilTerminationB()) {}
   }
 
-  def cycle(): Unit = {
-    print(s"[${reg(0)}, ${reg(1)}, ${reg(2)}, ${reg(3)}, ${reg(4)}, ${reg(5)}] ")
-
+  def cycleUntilTerminationA(): Boolean = {
     val nextPos = reg(pointer)
-    if(nextPos >= instructions.length) {
-      println
-      println(s"Execution halted, result: ${reg(0)}")
-      System.exit(0)
-    }
     val next = instructions(nextPos)
 
-    print(s"${next.op} ${next.a} ${next.b} ${next.c} ")
+    Instr.execute(next)
+    reg(pointer) += 1
+
+    if (next.op == "eqrr") {
+      println(s"\nSolution to part A: ${reg(4)}")
+      return false
+    }
+    true
+  }
+
+  def cycleUntilTerminationB(): Boolean = {
+    val nextPos = reg(pointer)
+    val next = instructions(nextPos)
 
     Instr.execute(next)
-    println(s"[${reg(0)}, ${reg(1)}, ${reg(2)}, ${reg(3)}, ${reg(4)}, ${reg(5)}] ")
+
+    if (next.op == "eqrr"){
+      if (resultsB.contains(reg(4))) {
+        // hit repetition, from here on an endless loop will ensue. Correct answer was last added on resultsB
+        println(s"Result to part B is ${resultsB.last}") // 7717135
+        return false
+      } else {
+        resultsB += reg(4)
+      }
+    }
+
     reg(pointer) += 1
+    true
   }
 }

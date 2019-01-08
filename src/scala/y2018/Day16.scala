@@ -115,8 +115,8 @@ object Day16 {
   def muli(a: Int, b: Int, c: Int): Unit = reg(c) = reg(a) * b
   def banr(a: Int, b: Int, c: Int): Unit = reg(c) = reg(a) & reg(b)
   def bani(a: Int, b: Int, c: Int): Unit = reg(c) = reg(a) & b
-  def borr(a: Int, b: Int, c: Int): Unit = reg(c) = reg(a) | b
-  def bori(a: Int, b: Int, c: Int): Unit = reg(c) = reg(a) | reg(b)
+  def borr(a: Int, b: Int, c: Int): Unit = reg(c) = reg(a) | reg(b)
+  def bori(a: Int, b: Int, c: Int): Unit = reg(c) = reg(a) | b
   def setr(a: Int, b: Int, c: Int): Unit = reg(c) = reg(a)
   def seti(a: Int, b: Int, c: Int): Unit = reg(c) = a
   def gtir(a: Int, b: Int, c: Int): Unit = { if(a > reg(b)) reg(c) = 1 else reg(c) = 0 }
