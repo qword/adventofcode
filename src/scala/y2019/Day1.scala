@@ -8,7 +8,7 @@ object Day1 {
 
     var acc1, acc2 = 0
     bufferedSource.getLines.foreach(line => {
-      val mass = (line toInt)
+      val mass = line.toInt
       acc1 = acc1 + calcFuel(mass)
       acc2 = acc2 + calcFuelComp(mass)
     })
