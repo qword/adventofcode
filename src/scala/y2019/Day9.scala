@@ -5,11 +5,16 @@ import scala.io.Source
 
 object Day9s {
   def main(args: Array[String]): Unit = {
-    println(s"Part A: $partA") // 203 too low
+    println(s"Part A: $partA") // 3280416268
+    println(s"Part B: $partB") // 80210
   }
 
   def partA: String = {
     run(readInput, Array(1)).mkString(",")
+  }
+
+  def partB: String = {
+    run(readInput, Array(2)).mkString(",")
   }
 
   def readInput: Map[Long, Long] = {
