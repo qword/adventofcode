@@ -9,18 +9,10 @@ object Day7s {
   }
 
   def partA: String = {
-    Array(0,1,2,3,4).permutations.toStream
-      .map(runAmplifiers)
+    (0 to 4).permutations
+      .map(seq => seq.foldLeft(0)((acc, i) => run(readInput, Array(i, acc))))
       .max
       .toString
-  }
-
-  def runAmplifiers(phaseSequence: Array[Int]): Int = {
-    val outputA = run(readInput, Array(phaseSequence(0),0))
-    val outputB = run(readInput, Array(phaseSequence(1),outputA))
-    val outputC = run(readInput, Array(phaseSequence(2),outputB))
-    val outputD = run(readInput, Array(phaseSequence(3),outputC))
-    run(readInput, Array(phaseSequence(4),outputD))
   }
 
   def readInput = {
