@@ -2,15 +2,16 @@ package y2019
 import scala.annotation.tailrec
 import scala.io.Source
 
-object Day11s {
+object Day11s extends Input {
 
   def main(args: Array[String]): Unit = {
     val initialHull = Map.empty[(Int, Int), Int]
 
-    val partA = run(readInput, initialHull).values.size
+    val program = readSingleLineInput("input/2019/day11")
+    val partA = run(program, initialHull).values.size
     println(s"Part A: $partA") // 2018
 
-    val partB = run(readInput, initialHull + ((0,0) -> 1))
+    val partB = run(program, initialHull + ((0,0) -> 1))
     println(s"Part B: see output")
     display(partB) // APFKRKBR
   }
@@ -28,16 +29,6 @@ object Day11s {
         print(if (c==0) " " else "█")
       }
       println()
-    }
-  }
-
-  def readInput: Map[Long, Long] = {
-    val bufferedSource = Source.fromFile("input/2019/day11")
-    try {
-      bufferedSource.getLines.next.split(",") // read sequence of numbers
-        .zipWithIndex.map{case (v, i) => i.toLong -> v.toLong}.toMap // create map index -> content
-    } finally {
-      bufferedSource.close()
     }
   }
 
