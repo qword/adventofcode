@@ -5,7 +5,7 @@ import scala.annotation.tailrec
 object Day13s extends Input {
 
   def main(args: Array[String]): Unit = {
-    val program = readSingleLineInput("input/2019/day13")
+    val program = readSingleLine("input/2019/day13")
 
     val partA = run(program).map(_._3).count(_==2)
     println(s"Part A: $partA") // 216

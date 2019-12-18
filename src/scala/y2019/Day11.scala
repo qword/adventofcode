@@ -7,7 +7,7 @@ object Day11s extends Input {
   def main(args: Array[String]): Unit = {
     val initialHull = Map.empty[(Int, Int), Int]
 
-    val program = readSingleLineInput("input/2019/day11")
+    val program = readSingleLine("input/2019/day11")
     val partA = run(program, initialHull).values.size
     println(s"Part A: $partA") // 2018
 
