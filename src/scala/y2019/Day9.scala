@@ -3,28 +3,18 @@ package y2019
 import scala.annotation.tailrec
 import scala.io.Source
 
-object Day9s {
+object Day9s extends Input {
   def main(args: Array[String]): Unit = {
     println(s"Part A: $partA") // 3280416268
     println(s"Part B: $partB") // 80210
   }
 
   def partA: String = {
-    run(readInput, Array(1)).mkString(",")
+    run(readSingleLine("input/2019/day9"), Array(1)).mkString(",")
   }
 
   def partB: String = {
-    run(readInput, Array(2)).mkString(",")
-  }
-
-  def readInput: Map[Long, Long] = {
-    val bufferedSource = Source.fromFile("input/2019/day9")
-    try {
-      bufferedSource.getLines.next.split(",") // read sequence of numbers
-        .zipWithIndex.map{case (v, i) => i.toLong -> v.toLong}.toMap // create map index -> content
-    } finally {
-      bufferedSource.close()
-    }
+    run(readSingleLine("input/2019/day9"), Array(2)).mkString(",")
   }
 
   def run(program: Map[Long, Long], input: Array[Long]): List[Long] = {
