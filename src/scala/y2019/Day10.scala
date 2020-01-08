@@ -7,15 +7,14 @@ import scala.collection.mutable.ListBuffer
 
 object Day10s extends Input {
   case class Pos(x: Int, y: Int, cx: Int, cy: Int, var blasted: Boolean = false) {
-    def dx = x - cx
-    def dy = y - cy
+    def dx: Int = x - cx
+    def dy: Int = y - cy
 
-    def φ = (atan2(dx * 1.0, dy * -1.0) + 2 * Math.PI) % (2 * Math.PI) // angular coordinate φ
-    def r = sqrt(pow(dx, 2) + pow(dy, 2)) // radial coordinate
+    def φ: Double = (atan2(dx * 1.0, dy * -1.0) + 2 * PI) % (2 * PI) // angular coordinate φ
+    def r: Double = sqrt(pow(dx, 2) + pow(dy, 2)) // radial coordinate
 
     override def toString: String = s"absolute: ($x, $y), from center ($dx, $dy), polar from center($φ, $r)"
   }
-
 
   def main(args: Array[String]): Unit = {
     println(s"Part A: $partA") // 334
@@ -66,7 +65,6 @@ object Day10s extends Input {
     -1
   }
 
-  // sucks big time, needs to be rewritten in proper scala
   def getAsteroidsChart(): List[(Int, Int)] = {
     val lb = ListBuffer.empty[(Int, Int)]
 
@@ -83,12 +81,11 @@ object Day10s extends Input {
     lb.toList
   }
 
-  // sucks big time, needs to be rewritten in proper scala
   def countVisible(asteroids: List[(Int, Int)], target: (Int, Int)): Int = {
     var set = Set[(Int, Int)]()
 
     asteroids
-      .filter(item => item._1 != target._1 || item._2 != target._2)
+      .filterNot(_ == target)
       .foreach(asteroid => {
         val dx = asteroid._1 - target._1
         val dy = asteroid._2 - target._2
