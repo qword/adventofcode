@@ -1,7 +1,6 @@
 package y2019
 
 import scala.annotation.tailrec
-import scala.io.Source
 
 object Day9s extends Input {
   def main(args: Array[String]): Unit = {

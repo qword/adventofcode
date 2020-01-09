@@ -1,21 +1,14 @@
 package y2019
 
-import scala.io.Source
-
-object Day1 {
+object Day1 extends Input {
   def main(args: Array[String]): Unit = {
-    val bufferedSource = Source.fromFile("input/2019/day1")
+    val input = readLines("input/2019/day1").map(_.toInt)
 
-    var acc1, acc2 = 0
-    bufferedSource.getLines.foreach(line => {
-      val mass = line.toInt
-      acc1 = acc1 + calcFuel(mass)
-      acc2 = acc2 + calcFuelComp(mass)
-    })
-    bufferedSource.close()
+    val partA = input.fold(0)(_ + calcFuel(_))
+    println(s"Part A: $partA") // 3297866
 
-    println(s"Part A: $acc1") // 3297866
-    println(s"Part B: $acc2") // 4943923
+    val partB = input.fold(0)(_ + calcFuelComp(_))
+    println(s"Part B: $partB") // 4943923
   }
 
   def calcFuelComp(mass: Int): Int = {

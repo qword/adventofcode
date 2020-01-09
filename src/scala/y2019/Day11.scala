@@ -1,6 +1,5 @@
 package y2019
 import scala.annotation.tailrec
-import scala.io.Source
 
 object Day11s extends Input {
 
