@@ -13,9 +13,9 @@ import java.util.StringJoiner;
 import java.util.logging.Logger;
 import java.util.stream.Stream;
 
-class Day2j {
+public class Day2 {
 
-  private static final Logger LOGGER = Logger.getLogger(Day2j.class.getName());
+  private static final Logger LOGGER = Logger.getLogger(Day2.class.getName());
   private static final int TARGET_RESULT_PART_B = 19690720;
 
   public static void main(String[] args) throws IOException {

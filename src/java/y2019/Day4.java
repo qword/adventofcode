@@ -16,7 +16,7 @@ import java.util.stream.Stream;
  * Definitely too many repeated blocks
  * To be addressed when rewriting to Scala
  */
-class Day4 {
+public class Day4 {
 
   private static final Logger LOGGER = Logger.getLogger(Day4.class.getName());
 
