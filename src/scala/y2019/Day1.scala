@@ -18,8 +18,8 @@ object Day1 extends Input {
   }
 
   def calcFuel(mass: Int): Int = {
-    val tmp = (mass / 3) - 2
-    if (tmp < 0) 0
-    else tmp
+    val fuel = (mass / 3) - 2
+    if (fuel < 0) 0
+    else fuel
   }
 }
