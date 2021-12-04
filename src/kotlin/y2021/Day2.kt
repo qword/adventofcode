@@ -11,7 +11,7 @@ fun main() {
     part2(lines)
 }
 
-fun part1(lines: List<String>) {
+private fun part1(lines: List<String>) {
     var travel = 0
     var depth = 0
 
@@ -30,7 +30,7 @@ fun part1(lines: List<String>) {
     println("Part 1: ${depth * travel}")
 }
 
-fun part2(lines: List<String>) {
+private fun part2(lines: List<String>) {
     var travel = 0
     var depth = 0
     var aim = 0
