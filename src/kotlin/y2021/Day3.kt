@@ -39,6 +39,15 @@ private fun part1(lines: List<String>) {
 }
 
 private fun part2(lines: List<String>) {
+
+    val generator = calMinMax(lines) { if (it) 1 else 0 }
+    val scrubber = calMinMax(lines) { if (it) 0 else 1 }
+
+    println("Part 2: ${generator * scrubber}")
+
+}
+
+private fun calMinMax(lines: List<String>, count: (boo: Boolean) -> Int): Int {
     var input = lines.map { line ->
         line.map { bit ->
             bit.toString().toInt()
@@ -47,31 +56,12 @@ private fun part2(lines: List<String>) {
 
     for (i in 0 until lines[0].length) {
         val sum = input.sumOf { it[i] }
-        val mostCommon = if (sum > (input.size - 1) / 2) 1 else 0
-        val filteredInput = input.filter { it[i] ==  mostCommon }
+        val leastOrMostCommon = count(sum > (input.size - 1) / 2)
+        val filteredInput = input.filter { it[i] ==  leastOrMostCommon }
         input = filteredInput
         if (input.size == 1) break
     }
     var generator = ""
     for (i in input[0].indices) generator += input[0][i].toString()
-    val genVal = Integer.parseInt(generator, 2)
-
-    input = lines.map { line ->
-        line.map { bit ->
-            bit.toString().toInt()
-        }
-    }
-
-    for (i in 0 until lines[0].length) {
-        val sum = input.sumOf { it[i] }
-        val leastCommon = if (sum > (input.size - 1) / 2) 0 else 1
-        val filteredInput = input.filter { it[i] ==  leastCommon }
-        input = filteredInput
-        if (input.size == 1) break
-    }
-    var scrubber = ""
-    for (i in input[0].indices) scrubber += input[0][i].toString()
-    val scrubVal = Integer.parseInt(scrubber, 2)
-
-    println("Part 2: $genVal * $scrubVal = ${genVal * scrubVal}")
+    return Integer.parseInt(generator, 2)
 }
