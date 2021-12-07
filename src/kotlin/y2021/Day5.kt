@@ -14,7 +14,7 @@ fun main() {
     val part2 = fillBoard(lines, true).flatMap { it.asIterable() }.count { it > 1 }
 
     println("Part 1: $part1")
-    println("Part 2: $part2") // 11105 too low, 18869 too high, 14232 wrong
+    println("Part 2: $part2")
 }
 
 private fun fillBoard(lines: List<String>, isPart2: Boolean): Board {
