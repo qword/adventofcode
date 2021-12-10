@@ -16,7 +16,7 @@ fun main() {
     println("Part 2: $basinsCalc")
 }
 
-fun calcLowPoints(board: Array<IntArray>): Pair<Int, Int> {
+private fun calcLowPoints(board: Array<IntArray>): Pair<Int, Int> {
     var count = 0
     val basins = mutableListOf<Int>()
 
@@ -38,7 +38,7 @@ fun calcLowPoints(board: Array<IntArray>): Pair<Int, Int> {
     return Pair(count, basinValue)
 }
 
-fun calcBasinSize(board: Array<IntArray>, y: Int, x: Int): Int {
+private fun calcBasinSize(board: Array<IntArray>, y: Int, x: Int): Int {
     val visitedBoard = Array(board.size) { IntArray(board[0].size) { 0 } }
 
     fun visit(y: Int, x: Int): Unit {
