@@ -6,25 +6,14 @@ with open(path, "tr") as file:
 
 input = lines[0]
 
-def find_marker1():
-    for i in range(len(input) - 3):
-        
+def find_marker(window_size):
+    for i in range(len(input) - window_size + 1):
         s = set()
-        for j in range(4):
+        for j in range(window_size):
             s.add(input[i + j])
-            if (len(s) == 4):
+            if (len(s) == window_size):
                 return i + j + 1
     return -1
 
-def find_marker2():
-    for i in range(len(input) - 13):
-        
-        s = set()
-        for j in range(14):
-            s.add(input[i + j])
-            if (len(s) == 14):
-                return i + j + 1
-    return -1
-
-print("Part A: {}".format(find_marker1()))
-print("Part B: {}".format(find_marker2()))
+print("Part A: {}".format(find_marker(4)))
+print("Part B: {}".format(find_marker(14)))
